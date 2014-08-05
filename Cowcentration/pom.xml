@@ -18,7 +18,13 @@
         <version>4.10</version>
         <scope>test</scope>
     </dependency>
-</dependencies>
+        <dependency>
+            <groupId>cowcentration</groupId>
+            <artifactId>Cowcentration</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 
 <build>
     <plugins>
