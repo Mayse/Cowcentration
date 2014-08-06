@@ -1,5 +1,5 @@
 
-import ui.TextUi;
+import cowcentration.ui.TextUi;
 
 
 /**

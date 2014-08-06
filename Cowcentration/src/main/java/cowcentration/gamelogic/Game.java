@@ -1,44 +1,53 @@
 
-package gamelogic;
+package cowcentration.gamelogic;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author miikas
- */
 public class Game {
     
     private List<Player> players;
     private List<Card> cards;
     private Player currentPlayer;
 
-    public Game(List<String> players, int cards) {
+    public Game(List<String> players, int cardPairAmount) {
         this.players = new ArrayList();
+        if (!players.isEmpty()) {
+            
+        
         for (String player : players) {
             this.players.add(new Player(player));
-        }
-        this.cards = new ArrayList<>();
-        for (int i = 0; i < cards; i++) {
-            this.cards.add(new Card(i, null));
-            this.cards.add(new Card(i, null));
-        }
-        
-        
+        }        
         this.currentPlayer = this.players.get(0);
+        }
+        
+        this.cards = new ArrayList<>();
+        if (cardPairAmount>0) {
+            
+        
+        for (int i = 0; i < cardPairAmount; i++) {
+            this.cards.add(new Card(i, null));
+            this.cards.add(new Card(i, null));
+        }
+        }
+        
     }
     
     
     public boolean compareCards(int first, int second){
-        if (cards.get(first).getRemoved()||cards.get(second).getRemoved()) {
-            throw new IllegalArgumentException("one or both cards not in play");
+        if (cards.get(first).getRemoved()) {
+            throw new IllegalArgumentException("card from first argument not in play");
+        }
+        if (cards.get(second).getRemoved()){
+                        throw new IllegalArgumentException("card from second argument not in play");
+
         }
         if(first == second){
             throw new IllegalArgumentException("card being compared to itself");
         }
+        
         try {
-            if (cards.get(first).getId() == cards.get(second).getId()) {
+            if (this.cards.get(first).getId()==this.cards.get(second).getId()) {
                 return true;
             }
         } catch (Exception e) {
@@ -77,7 +86,7 @@ public class Game {
         this.currentPlayer.addPoint();
     }
 
-    public boolean gameOver() {
+    public boolean isGameOver() {
         for (Card card : cards) {
             if (!card.getRemoved()) {
                 return false;
@@ -85,7 +94,30 @@ public class Game {
         }
         return true;
     }
+
+    public List<Card> getCards() {
+        return cards;
+    }
     
+    public List<Integer> getAvailableCardIndexes(){
+        List list = new ArrayList();
+        int i = 0;
+        for (Card card : this.cards) {
+            if (!card.getRemoved()) {
+                list.add(i);
+            }
+            i++;
+        }
+        return list;
+    }
     
+    public List<String> getScoreboard(){
+        List scoreboard = new ArrayList();
+        for (Player player : players) {
+            String row = player.getName() + ": " + player.getPoints();
+            scoreboard.add(row);
+        }
+        return scoreboard;
+    }
             
 }

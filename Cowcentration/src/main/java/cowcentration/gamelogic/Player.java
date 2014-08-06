@@ -1,10 +1,6 @@
 
-package gamelogic;
+package cowcentration.gamelogic;
 
-/**
- *
- * @author miikas
- */
 class Player {
     
     private final String name;
