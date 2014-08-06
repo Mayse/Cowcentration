@@ -1,6 +1,8 @@
-package cowcentration.gamelogicTests;
+package cowcentration.gamelogic;
 
 
+import cowcentration.gamelogic.Game;
+import cowcentration.gamelogic.Game;
 import cowcentration.gamelogic.Game;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +17,10 @@ import org.junit.Test;
  *
  * @author miikas
  */
-public class gameTests {
+public class GameTest {
     
     
-    public gameTests() {
+    public GameTest() {
     }
     
     @BeforeClass
