@@ -10,6 +10,11 @@ public class Game {
     private List<Card> cards;
     private Player currentPlayer;
 
+    /**
+     * game logic core object for handling cards and players in the game
+     * @param players List containing names of players
+     * @param cardPairAmount Integer of amount of cards to be generated for play
+     */
     public Game(List<String> players, int cardPairAmount) {
         this.players = new ArrayList();
         if (!players.isEmpty()) {
@@ -33,7 +38,11 @@ public class Game {
         
     }
     
-    
+    /**
+     * compares two cards and returns true if pair is found
+     * @param first index of first card
+     * @param second index of second card
+     */
     public boolean compareCards(int first, int second){
         if (cards.get(first).getRemoved()) {
             throw new IllegalArgumentException("card from first argument not in play");
@@ -57,10 +66,17 @@ public class Game {
         return false;
     }
     
+    /**
+     * Mark a card removed from game, usually to signify a card has been found
+     * @param i index of card to be marked as removed
+     */
     public void removeCard(int i){
         this.cards.get(i).remove();
     }
     
+    /**
+     * set current player to be the next in line loops around once last player is reached
+     */
     public void nextPlayer(){
         int indexOfCurrentPlayer;
         int i = 0;
@@ -82,10 +98,17 @@ public class Game {
         return this.currentPlayer;
     }
     
+    /**
+     * add one point to current players score
+     */
     public void addPoint(){
         this.currentPlayer.addPoint();
     }
 
+    /**
+     * checks the cards list to see if all cards have been found
+     * @return is true if all cards have been found and game is ready to end
+     */
     public boolean isGameOver() {
         for (Card card : cards) {
             if (!card.getRemoved()) {
@@ -99,6 +122,10 @@ public class Game {
         return cards;
     }
     
+    /**
+     * fetches cards that have not yet been removed from game
+     * @return list of all cards not yet removed from game (legal selections for compareCards() method
+     */
     public List<Integer> getAvailableCardIndexes(){
         List list = new ArrayList();
         int i = 0;
@@ -111,6 +138,10 @@ public class Game {
         return list;
     }
     
+    /**
+     * fetches player names and scores
+     * @return concatenated elements containing player name and current score
+     */
     public List<String> getScoreboard(){
         List scoreboard = new ArrayList();
         for (Player player : players) {

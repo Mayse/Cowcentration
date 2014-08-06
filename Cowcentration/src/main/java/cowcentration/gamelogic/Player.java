@@ -23,6 +23,9 @@ class Player {
         this.points = points;
     }
     
+    /**
+     * Increment player score by one
+     */
     public void addPoint(){
         this.points = this.points + 1;
     }
