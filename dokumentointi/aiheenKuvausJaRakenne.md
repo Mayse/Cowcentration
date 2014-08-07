@@ -7,7 +7,10 @@
 
 #####ennen peliä
 * pelaajamäärän valitseminen
-* pelaajien nimeäminen, käytetäänkö annettua järjestystä vai sekoitetaanko, ihmis- vai tekoälypelaaja, tekoälyn vaikeus (täysin satunnainen, lyhyt muisti, pitkä muisti, täydellinen muisti)
+* pelaajien nimeäminen 
+  * käytetäänkö annettua järjestystä vai sekoitetaanko
+  * ihmis- vai tekoälypelaaja
+    * tekoälyn vaikeus (täysin satunnainen, lyhyt muisti, pitkä muisti, täydellinen muisti)
 * pelin koko pieni (4*4 ruudukko), keskikokoinen (6*6), iso (8*8)
 * pistemäärän ylläpito, peleistä ylläpidetään highscorea viidestä parhaasta tuloksesta
 * keskeytyneen pelin jatkaminen
