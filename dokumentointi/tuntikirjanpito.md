@@ -10,4 +10,8 @@
 
 ######5.8. keskiviikko
 
-* 3h pään hakkaamista seinään coberturan kanssa
+* 3h pään hakkaamista seinään coberturan kanssa + javadocceja
+
+######6.8. torstai
+
+* 1h testien lisäystä
