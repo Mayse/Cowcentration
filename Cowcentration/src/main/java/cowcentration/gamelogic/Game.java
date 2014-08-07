@@ -80,7 +80,7 @@ public class Game {
     public void nextPlayer(){
         int indexOfCurrentPlayer;
         int i = 0;
-        for (Player player : players) {
+        for (Player player : this.players) {
             if (player == this.currentPlayer) {
                 indexOfCurrentPlayer = i;
                 break;
