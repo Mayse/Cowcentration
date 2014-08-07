@@ -7,9 +7,14 @@
 
 #####ennen peliä
 * pelaajamäärän valitseminen
-* pelin koko (korttien määrä) 
-* pistemäärän ylläpito
+* pelaajien nimeäminen, käytetäänkö annettua järjestystä vai sekoitetaanko, ihmis- vai tekoälypelaaja, tekoälyn vaikeus (täysin satunnainen, lyhyt muisti, pitkä muisti, täydellinen muisti)
+* pelin koko pieni (4*4 ruudukko), keskikokoinen (6*6), iso (8*8)
+* pistemäärän ylläpito, peleistä ylläpidetään highscorea viidestä parhaasta tuloksesta
+* keskeytyneen pelin jatkaminen
+* uuden pelin aloittaminen
 
 ######pelin aikana
 * korttien kääntäminen
-* pelin keskeyttäminen
+* vuorossa olevan pelaajan ilmoittaminen ja pistetilanteen näyttö
+* pelin keskeyttäminen, pelitilanne talletetaan
+* pelin päätyttyä pistetilanteen esittäminen ja paluu alkuvalikkoon, pelin asetuksen säilytetään
