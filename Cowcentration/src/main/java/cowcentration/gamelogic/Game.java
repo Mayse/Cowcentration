@@ -2,6 +2,7 @@
 package cowcentration.gamelogic;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -36,6 +37,14 @@ public class Game {
         }
         }
         
+    }
+    
+    public void shufflePlayers(){
+        Collections.shuffle(this.players);
+    }
+    
+    public void shuffleCards(){
+        Collections.shuffle(this.cards);
     }
     
     /**
