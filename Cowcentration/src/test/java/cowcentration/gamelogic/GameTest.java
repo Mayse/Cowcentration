@@ -63,8 +63,33 @@ public class GameTest {
         List players = new ArrayList();
         players.add("name");
         Game game = new Game(players, 2);
-        assertTrue(game.compareCards(0, 1));
         
+        //normal comparison with known pair and not pair
+        assertTrue(game.compareCards(0, 1));
+        assertFalse(game.compareCards(0, 2));
+        
+        try {
+            game.compareCards(1, 1);
+            fail("no comparing to self!");
+        } catch (Exception e) {
+        }
+        
+        //trying to compare removed cards
+        game.removeCard(1);        
+        try {
+            game.compareCards(0, 1);
+            fail("card of first parameter should be removed");
+            game.compareCards(1, 0);
+            fail("card of second parameter should be removed");
+        } catch (Exception e) {
+        }
+        
+        //going out of bounds
+        try {
+            game.compareCards(99, 256);
+            fail("compared cards with index outside deck");
+        } catch (Exception e) {
+        }
     }
     
     @Test
@@ -131,10 +156,25 @@ public class GameTest {
         players.add("name1");
         players.add("name2");
         Game game = new Game(players, 2);
+        
+        //checking sizes correct before and after removal
         assertTrue(game.getAvailableCardIndexes().size()==game.getCards().size());
         game.removeCard(0);
         game.removeCard(1);
         assertTrue(game.getAvailableCardIndexes().size()==game.getCards().size()-2);
 
+    }
+    
+    @Test
+    public void testScoreboard(){
+        List players = new ArrayList();
+        players.add("name1");
+        players.add("name2");
+        Game game = new Game(players, 2);
+        
+        game.addPoint();
+        List scoreboard = game.getScoreboard();
+        assertTrue(scoreboard.get(0).equals("name1: 1"));
+        assertTrue(scoreboard.get(1).equals("name2: 0"));
     }
 }
