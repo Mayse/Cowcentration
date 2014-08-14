@@ -7,7 +7,7 @@ public class main {
         /*
         TextUi textUi = new TextUi();
         textUi.run();
-          */      
+        */        
         
         new GraphicUi().run();
         

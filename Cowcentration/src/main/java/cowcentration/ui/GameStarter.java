@@ -1,21 +1,41 @@
 
 package cowcentration.ui;
 
+import cowcentration.gamelogic.Game;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  *
  * @author miikas
  */
 class GameStarter implements ActionListener{
+    
+    private List<JTextField> jTextFields;
+    private JFrame frame;
 
     public GameStarter() {
     }
 
+    GameStarter(List jTextFields, JFrame frame) {
+        this.jTextFields = jTextFields;
+        this.frame = frame;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List players = new ArrayList();
+        for (JTextField field : jTextFields) {
+            players.add(field.getText());
+        }
+        Game game =new Game(players, 16);
+        GraphicGame graphicGame = new GraphicGame(game);
+        frame.setVisible(false);
+        graphicGame.run();
     }
     
 }
