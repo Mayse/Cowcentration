@@ -18,3 +18,4 @@
 
 ######14.8. torstai
 * 2h GUI builderin kanssa taistelua ja töiden heittämistä roskakoriin
+* 30min siirtyminen swing komponenttien kirjoittamiseen käsin ja alkumenun toimimaton malli valmiiksi
