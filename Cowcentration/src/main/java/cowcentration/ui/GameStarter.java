@@ -33,6 +33,8 @@ class GameStarter implements ActionListener{
             players.add(field.getText());
         }
         Game game =new Game(players, 16);
+        game.shuffleCards();
+        game.shufflePlayers();
         GraphicGame graphicGame = new GraphicGame(game);
         frame.setVisible(false);
         graphicGame.run();

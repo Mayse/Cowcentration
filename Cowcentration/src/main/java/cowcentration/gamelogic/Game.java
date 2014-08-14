@@ -32,8 +32,9 @@ public class Game {
             
         
         for (int i = 0; i < cardPairAmount; i++) {
-            this.cards.add(new Card(i, null));
-            this.cards.add(new Card(i, null));
+            String text = Integer.toString(i);
+            this.cards.add(new Card(i, text));
+            this.cards.add(new Card(i, text));
         }
         }
         
@@ -129,6 +130,10 @@ public class Game {
 
     public List<Card> getCards() {
         return cards;
+    }
+    
+    public String getCardText(int i){
+        return this.cards.get(i).getText();
     }
     
     /**

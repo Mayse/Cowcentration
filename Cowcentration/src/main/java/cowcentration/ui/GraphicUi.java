@@ -33,6 +33,7 @@ public class GraphicUi implements Runnable{
     private void createComponents(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
+        //staattinen pelaajamäärä tällä hetkellä
     JTextField player1 = new JTextField("Player 1");
     JTextField player2 = new JTextField("Player 2");
     JTextField player3 = new JTextField("Player 3");
