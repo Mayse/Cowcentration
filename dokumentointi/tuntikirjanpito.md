@@ -15,3 +15,6 @@
 ######6.8. torstai
 
 * 1h testien lisäystä
+
+######14.8. torstai
+* 2h GUI builderin kanssa taistelua ja töiden heittämistä roskakoriin
