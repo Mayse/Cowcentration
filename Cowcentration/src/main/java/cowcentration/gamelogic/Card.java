@@ -1,7 +1,7 @@
 
 package cowcentration.gamelogic;
 
-class Card {
+public class Card {
     
     private final int id;
     private final String text;

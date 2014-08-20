@@ -20,3 +20,6 @@
 * 2h GUI builderin kanssa taistelua ja töiden heittämistä roskakoriin
 * 30min siirtyminen swing komponenttien kirjoittamiseen käsin ja alkumenun toimimaton malli valmiiksi
 * 1,5h käyttöliittymän aloitus- ja pelinäkymien runko kirjoitettu käsin alkuun
+
+######20.8. keskiviikko
+* 3h lisätty tekoälyluokka
