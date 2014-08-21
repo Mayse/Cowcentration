@@ -23,3 +23,6 @@
 
 ######20.8. keskiviikko
 * 3h lisätty tekoälyluokka
+
+######21.8. torstai
+* 2h viety eteenpäin graafista käyttöliittymää
