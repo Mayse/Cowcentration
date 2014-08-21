@@ -1,5 +1,5 @@
 
-import cowcentration.ui.GraphicUi;
+import cowcentration.ui.GraphicStartMenu;
 
 
 public class main {
@@ -9,7 +9,7 @@ public class main {
         textUi.run();
         */        
         
-        new GraphicUi().run();
+        new GraphicStartMenu().run();
         
     }
 }

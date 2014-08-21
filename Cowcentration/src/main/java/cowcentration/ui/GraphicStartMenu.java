@@ -13,7 +13,7 @@ import javax.swing.WindowConstants;
 
 
 
-public class GraphicUi implements Runnable{
+public class GraphicStartMenu implements Runnable{
 
         private JFrame frame;
         private List jTextFields;
@@ -45,6 +45,8 @@ public class GraphicUi implements Runnable{
     jTextFields.add(player2);
     jTextFields.add(player3);
     jTextFields.add(player4);
+    
+    
     start.addActionListener(new GameStarter(jTextFields, frame));
 
     container.add(player1);

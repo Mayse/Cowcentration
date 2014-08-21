@@ -39,7 +39,7 @@ class GraphicGame implements Runnable{
     private void createComponents(Container container) {
         FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
         container.setLayout(layout);
-        for (int i = 0; i < game.getCards().size()/2; i++) {
+        for (int i = 0; i < game.getCards().size(); i++) {
            JLabel card = new JLabel("card");
             container.add(card);
             JButton button = new JButton("choose");

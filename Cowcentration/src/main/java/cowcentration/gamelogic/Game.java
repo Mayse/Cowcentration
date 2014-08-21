@@ -10,6 +10,7 @@ public class Game {
     private List<Player> players;
     private List<Card> cards;
     private Player currentPlayer;
+    private TurnState turnState;
 
     /**
      * game logic core object for handling cards and players in the game
@@ -37,6 +38,8 @@ public class Game {
             this.cards.add(new Card(i, text));
         }
         }
+        
+        this.turnState = new TurnState();
         
     }
     
@@ -164,5 +167,11 @@ public class Game {
         }
         return scoreboard;
     }
+
+    public TurnState getTurnState() {
+        return turnState;
+    }
+    
+    
             
 }

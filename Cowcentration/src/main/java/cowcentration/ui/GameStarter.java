@@ -32,7 +32,7 @@ class GameStarter implements ActionListener{
         for (JTextField field : jTextFields) {
             players.add(field.getText());
         }
-        Game game =new Game(players, 16);
+        Game game =new Game(players, 8);
         game.shuffleCards();
         game.shufflePlayers();
         GraphicGame graphicGame = new GraphicGame(game);
