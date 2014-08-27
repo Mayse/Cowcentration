@@ -1,6 +1,7 @@
 
 package cowcentration.gamelogic;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -12,6 +13,8 @@ public class TurnState {
     private int indexOfLastCard;
     private JLabel lastCard; 
     private JLabel secondLastCard;
+    private JButton secondLastButton;
+    private JButton lastButton;
 
     public TurnState() {
         this.cardsVisible = 0;
@@ -49,6 +52,24 @@ public class TurnState {
     public void setSecondLastCard(JLabel secondLastCard) {
         this.secondLastCard = secondLastCard;
     }
+
+    public JButton getSecondLastButton() {
+        return secondLastButton;
+    }
+
+    public void setSecondLastButton(JButton secondLastButton) {
+        this.secondLastButton = secondLastButton;
+    }
+
+    public JButton getLastButton() {
+        return lastButton;
+    }
+
+    public void setLastButton(JButton lastButton) {
+        this.lastButton = lastButton;
+    }
+
+    
     
     
     

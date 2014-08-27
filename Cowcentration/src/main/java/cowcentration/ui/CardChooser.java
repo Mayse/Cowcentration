@@ -1,21 +1,22 @@
 package cowcentration.ui;
 
-import cowcentration.gamelogic.Game;
+import cowcentration.gamelogic.GraphicGameLogic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 class CardChooser implements ActionListener {
 
     private int i;
-    private Game game;
+    private GraphicGameLogic game;
     private JLabel card;
+    private JButton button;
 
-    CardChooser(Game game, int i, JLabel card) {
+    CardChooser(GraphicGameLogic game, int i, JLabel card, JButton button) {
         this.card = card;
         this.game = game;
+        this.button = button;
         this.i = i;
     }
 
@@ -36,12 +37,16 @@ class CardChooser implements ActionListener {
             this.card.setText(this.game.getCardText(i));
             this.game.getTurnState().setIndexOfLastCard(i);
             this.game.getTurnState().setLastCard(card);
+            this.game.getTurnState().setLastButton(button);
             this.game.getTurnState().setCardsVisible(1);
+            this.game.getTurnState().getLastButton().setEnabled(false);
         }
         else if (this.game.getTurnState().getCardsVisible() == 1) {
             //reveal second card
             this.game.getTurnState().setSecondLastCard(this.game.getTurnState().getLastCard());
+            this.game.getTurnState().setSecondLastButton(this.game.getTurnState().getLastButton());
             this.game.getTurnState().setLastCard(card);
+            this.game.getTurnState().setLastButton(button);
             this.card.setText(this.game.getCardText(i));
             this.game.getTurnState().setCardsVisible(2);
             //compare them
@@ -53,9 +58,16 @@ class CardChooser implements ActionListener {
                 this.game.getTurnState().getSecondLastCard().setText("found");
                 this.game.getTurnState().setCardsVisible(0);
                 this.game.addPoint();
+                this.game.getTurnState().getLastButton().setEnabled(false);
+                this.game.getTurnState().getSecondLastButton().setEnabled(false);
+                if (this.game.isGameOver()) {
+                    //end game if necessary
+                }
             }
             //if not match move current player to next
             else {
+                this.game.getTurnState().getLastButton().setEnabled(true);
+                this.game.getTurnState().getSecondLastButton().setEnabled(true);
                 this.game.nextPlayer();
             }
             

@@ -7,10 +7,10 @@ import java.util.List;
 
 public class Game {
     
-    private List<Player> players;
-    private List<Card> cards;
-    private Player currentPlayer;
-    private TurnState turnState;
+    List<Player> players;
+    List<Card> cards;
+    Player currentPlayer;
+    TurnState turnState;
 
     /**
      * game logic core object for handling cards and players in the game
