@@ -26,3 +26,6 @@
 
 ######21.8. torstai
 * 2h viety eteenpäin graafista käyttöliittymää
+
+######27.8. keskiviikko
+* 1,5h graafisessa käyttöliittymässä korttien valitseminen ja löytäminen toimii
