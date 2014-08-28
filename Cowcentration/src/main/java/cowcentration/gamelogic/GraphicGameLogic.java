@@ -27,5 +27,14 @@ public class GraphicGameLogic extends Game {
     public void shuffleGcards() {
         Collections.shuffle(this.gcards);
     }
+    
+    @Override
+    public boolean isGameOver(){
+for (Card card : gcards) {
+            if (!card.getRemoved()) {
+                return false;
+            }
+        }
+        return true;    }
 
 }

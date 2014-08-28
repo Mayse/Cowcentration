@@ -64,6 +64,8 @@ class CardChooser implements ActionListener {
                 this.game.getTurnState().getSecondLastButton().setEnabled(false);
                 if (this.game.isGameOver()) {
                     //end game if necessary
+                    GraphicEndScreen end = new GraphicEndScreen(this.game);
+                    end.run();
                 }
             } //if not match move current player to next
             else {
