@@ -60,6 +60,7 @@ public class GraphicStartMenu implements Runnable {
         JTextField player = new JTextField(name);
         jTextFields.add(player);
         JCheckBox playerAi = new JCheckBox("computer");
+        playerAi.setEnabled(false);//ai not yet implemented
         JPanel row = new JPanel();
         FlowLayout flow = new FlowLayout();
 

@@ -28,7 +28,7 @@ class GraphicGame implements Runnable {
     public void run() {
         frame = new JFrame("Cowcentration");
 
-        frame.setPreferredSize(new Dimension(600, 600));
+        frame.setPreferredSize(new Dimension(1400, 600));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         createComponents(frame.getContentPane());

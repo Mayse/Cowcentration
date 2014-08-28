@@ -21,7 +21,7 @@ public class GraphicEndScreen implements Runnable {
     public void run() {
         frame = new JFrame("Game over");
 
-        frame.setPreferredSize(new Dimension(600, 600));
+        frame.setPreferredSize(new Dimension(200, 150));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         createComponents(frame.getContentPane());
@@ -33,6 +33,7 @@ public class GraphicEndScreen implements Runnable {
     private void createComponents(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
+        container.add(new JLabel("Final scores:"));
         for (String row : this.game.getScoreboard()) {
             container.add(new JLabel(row));
         }
