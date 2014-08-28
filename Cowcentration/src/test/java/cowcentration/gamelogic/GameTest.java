@@ -139,15 +139,15 @@ public class GameTest {
         players.add("name1");
         players.add("name2");
         Game game = new Game(players, 2);
-        assertFalse(game.isGameOver());
+        assertFalse(game.isOver());
         game.removeCard(0);
-        assertFalse(game.isGameOver());
+        assertFalse(game.isOver());
         game.removeCard(1);
-        assertFalse(game.isGameOver());
+        assertFalse(game.isOver());
         game.removeCard(2);
-        assertFalse(game.isGameOver());
+        assertFalse(game.isOver());
         game.removeCard(3);
-        assertTrue(game.isGameOver());
+        assertTrue(game.isOver());
 }
     
     @Test

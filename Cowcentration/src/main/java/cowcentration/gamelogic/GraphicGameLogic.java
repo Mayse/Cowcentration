@@ -29,7 +29,7 @@ public class GraphicGameLogic extends Game {
     }
     
     @Override
-    public boolean isGameOver(){
+    public boolean isOver(){
 for (Card card : gcards) {
             if (!card.getRemoved()) {
                 return false;

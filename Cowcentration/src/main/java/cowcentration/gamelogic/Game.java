@@ -125,7 +125,7 @@ public class Game {
      *
      * @return is true if all cards have been found and game is ready to end
      */
-    public boolean isGameOver() {
+    public boolean isOver() {
         for (Card card : cards) {
             if (!card.getRemoved()) {
                 return false;

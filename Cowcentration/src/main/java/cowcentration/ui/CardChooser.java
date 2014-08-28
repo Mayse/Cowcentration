@@ -26,57 +26,89 @@ class CardChooser implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        //if two cards are visible hide both
-        if (this.game.getTurnState().getCardsVisible() == 2) {
-            this.game.getTurnState().getLastCard().setIcon(new ImageIcon("resources/Card_back_06.jpg"));
-            this.game.getTurnState().getSecondLastCard().setIcon(new ImageIcon("resources/Card_back_06.jpg"));
-            this.game.getTurnState().setCardsVisible(0);
+        if (twoCardsAreVisible()) {
+            hideAllCards();
         }
-
-        //if one card visible reveal second and compare the two
-        //if no cards visible reveal one
-        if (this.game.getTurnState().getCardsVisible() == 0) {
-
-            this.card.setIcon(this.game.getGcards().get(i).getPicture());
-            this.game.getTurnState().setIndexOfLastCard(i);
-            this.game.getTurnState().setLastCard(card);
-            this.game.getTurnState().setLastButton(button);
-            this.game.getTurnState().setCardsVisible(1);
-            this.game.getTurnState().getLastButton().setEnabled(false);
-        } else if (this.game.getTurnState().getCardsVisible() == 1) {
-            //reveal second card
-            this.game.getTurnState().setSecondLastCard(this.game.getTurnState().getLastCard());
-            this.game.getTurnState().setSecondLastButton(this.game.getTurnState().getLastButton());
-            this.game.getTurnState().setLastCard(card);
-            this.game.getTurnState().setLastButton(button);
-            this.card.setIcon(this.game.getGcards().get(i).getPicture());
-            this.game.getTurnState().setCardsVisible(2);
-            //compare them
-            if (this.game.getGcards().get(i).getId() == this.game.getGcards().get(this.game.getTurnState().getIndexOfLastCard()).getId()) {
-                //if match remove both cards from play and give point
-                this.game.getGcards().get(i).remove();
-                this.game.getGcards().get(this.game.getTurnState().getIndexOfLastCard()).remove();
-                this.button.setText("found");
-                this.game.getTurnState().getSecondLastButton().setText("found");
-                this.game.getTurnState().setCardsVisible(0);
+        if (noCardsAreVisible()) {
+            revealOneCard();
+        } else if (oneCardIsVisible()) {
+            revealSecondCard();
+            if (cardsAreAPair()) {
+                markCardsFound();
                 this.game.addPoint();
-                this.game.getTurnState().getLastButton().setEnabled(false);
-                this.game.getTurnState().getSecondLastButton().setEnabled(false);
-                if (this.game.isGameOver()) {
-                    //end game if necessary
+
+                if (this.game.isOver()) {
                     GraphicEndScreen end = new GraphicEndScreen(this.game);
                     end.run();
                 }
-            } //if not match move current player to next
+            }
             else {
-                this.game.getTurnState().getLastButton().setEnabled(true);
-                this.game.getTurnState().getSecondLastButton().setEnabled(true);
+                enableSelectionButtons();
                 this.game.nextPlayer();
-                this.currentPlayer.setText(game.getCurrentPlayer().getName());
+                updateCurrentPlayerText();
             }
 
         }
 
+    }
+
+    private void hideAllCards() {
+        this.game.getTurnState().getLastCard().setIcon(new ImageIcon("resources/Card_back_06.jpg"));
+        this.game.getTurnState().getSecondLastCard().setIcon(new ImageIcon("resources/Card_back_06.jpg"));
+        this.game.getTurnState().setCardsVisible(0);
+    }
+
+    private void revealOneCard() {
+        this.card.setIcon(this.game.getGcards().get(i).getPicture());
+        this.game.getTurnState().setIndexOfLastCard(i);
+        this.game.getTurnState().setLastCard(card);
+        this.game.getTurnState().setLastButton(button);
+        this.game.getTurnState().setCardsVisible(1);
+        this.game.getTurnState().getLastButton().setEnabled(false);
+    }
+
+    private void revealSecondCard() {
+        this.game.getTurnState().setSecondLastCard(this.game.getTurnState().getLastCard());
+        this.game.getTurnState().setSecondLastButton(this.game.getTurnState().getLastButton());
+        this.game.getTurnState().setLastCard(card);
+        this.game.getTurnState().setLastButton(button);
+        this.card.setIcon(this.game.getGcards().get(i).getPicture());
+        this.game.getTurnState().setCardsVisible(2);
+    }
+
+    private boolean twoCardsAreVisible() {
+        return this.game.getTurnState().getCardsVisible() == 2;
+    }
+
+    private boolean noCardsAreVisible() {
+        return this.game.getTurnState().getCardsVisible() == 0;
+    }
+
+    private boolean oneCardIsVisible() {
+        return this.game.getTurnState().getCardsVisible() == 1;
+    }
+
+    private boolean cardsAreAPair() {
+        return this.game.getGcards().get(i).getId() == this.game.getGcards().get(this.game.getTurnState().getIndexOfLastCard()).getId();
+    }
+
+    private void markCardsFound() {
+        this.game.getGcards().get(i).remove();
+        this.game.getGcards().get(this.game.getTurnState().getIndexOfLastCard()).remove();
+        this.button.setText("found");
+        this.game.getTurnState().getSecondLastButton().setText("found");
+        this.game.getTurnState().setCardsVisible(0);
+        this.game.getTurnState().getLastButton().setEnabled(false);
+        this.game.getTurnState().getSecondLastButton().setEnabled(false);
+    }
+
+    private void enableSelectionButtons() {
+        this.game.getTurnState().getLastButton().setEnabled(true);
+        this.game.getTurnState().getSecondLastButton().setEnabled(true);
+    }
+
+    private void updateCurrentPlayerText() {
+                this.currentPlayer.setText(game.getCurrentPlayer().getName());
     }
 
 }

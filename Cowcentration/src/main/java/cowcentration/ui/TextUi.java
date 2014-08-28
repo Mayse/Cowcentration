@@ -44,7 +44,7 @@ public class TextUi {
             } catch (Exception e) {
                 System.out.println("problematic!");
             }
-            if (game.isGameOver()) {
+            if (game.isOver()) {
                 System.out.println("game is over final scores");
                 printScore(game);
                 break;
