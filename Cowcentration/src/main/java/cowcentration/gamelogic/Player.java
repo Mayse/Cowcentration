@@ -1,6 +1,6 @@
 package cowcentration.gamelogic;
 
-class Player {
+public class Player {
 
     private final String name;
     private int points;

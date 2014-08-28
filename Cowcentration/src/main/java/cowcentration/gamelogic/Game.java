@@ -43,6 +43,7 @@ public class Game {
 
     public void shufflePlayers() {
         Collections.shuffle(this.players);
+        this.currentPlayer = this.players.get(0);
     }
 
     public void shuffleCards() {

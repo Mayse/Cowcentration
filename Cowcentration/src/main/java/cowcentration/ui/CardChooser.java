@@ -13,12 +13,14 @@ class CardChooser implements ActionListener {
     private final GraphicGameLogic game;
     private final JLabel card;
     private final JButton button;
+    private final JLabel currentPlayer;
 
-    CardChooser(GraphicGameLogic game, int i, JLabel card, JButton button) {
+    CardChooser(GraphicGameLogic game, int i, JLabel card, JButton button, JLabel currentPlayer) {
         this.card = card;
         this.game = game;
         this.button = button;
         this.i = i;
+        this.currentPlayer = currentPlayer;
     }
 
     @Override
@@ -68,6 +70,7 @@ class CardChooser implements ActionListener {
                 this.game.getTurnState().getLastButton().setEnabled(true);
                 this.game.getTurnState().getSecondLastButton().setEnabled(true);
                 this.game.nextPlayer();
+                this.currentPlayer.setText(game.getCurrentPlayer().getName());
             }
 
         }

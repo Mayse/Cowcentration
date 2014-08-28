@@ -1,10 +1,13 @@
 package cowcentration.ui;
 
 import cowcentration.gamelogic.GraphicGameLogic;
+import cowcentration.gamelogic.Player;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.PopupMenu;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,8 +38,14 @@ class GraphicGame implements Runnable {
     }
 
     private void createComponents(Container container) {
+
         FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
         container.setLayout(layout);
+        Container cards = new JPanel(layout);
+        
+        JLabel currentPlayer = new JLabel();
+        currentPlayer.setText(game.getCurrentPlayer().getName());
+        
         for (int i = 0; i < game.getCards().size(); i++) {
             JPanel cardButtonPair = new JPanel();
             cardButtonPair.setLayout(new BorderLayout());
@@ -45,23 +54,15 @@ class GraphicGame implements Runnable {
             cardButtonPair.add(card, BorderLayout.CENTER);
             JButton button = new JButton("choose");
             this.game.getGcards().get(i).setButton(button);
-            button.addActionListener(new CardChooser(this.game, i, card, button));
+            button.addActionListener(new CardChooser(this.game, i, card, button, currentPlayer));
             cardButtonPair.add(button, BorderLayout.SOUTH);
             container.add(cardButtonPair);
 
         }
+        
+        
+        container.add(cards);
+        container.add(currentPlayer);
+    }
 
-    }
-    
-    /** Returns an ImageIcon, or null if the path was invalid. */
-protected ImageIcon createImageIcon(String path,
-                                           String description) {
-    java.net.URL imgURL = getClass().getResource(path);
-    if (imgURL != null) {
-        return new ImageIcon(imgURL, description);
-    } else {
-        System.err.println("Couldn't find file: " + path);
-        return null;
-    }
-}
 }
