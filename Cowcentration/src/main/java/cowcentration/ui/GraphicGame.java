@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,17 +38,30 @@ class GraphicGame implements Runnable {
         FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
         container.setLayout(layout);
         for (int i = 0; i < game.getCards().size(); i++) {
-            JPanel cell = new JPanel();
-            cell.setLayout(new BorderLayout());
-            JLabel card = new JLabel("card");
-            cell.add(card, BorderLayout.CENTER);
+            JPanel cardButtonPair = new JPanel();
+            cardButtonPair.setLayout(new BorderLayout());
+            ImageIcon icon = new ImageIcon("resources/Card_back_06.jpg");
+            JLabel card = new JLabel(icon);
+            cardButtonPair.add(card, BorderLayout.CENTER);
             JButton button = new JButton("choose");
             this.game.getGcards().get(i).setButton(button);
             button.addActionListener(new CardChooser(this.game, i, card, button));
-            cell.add(button, BorderLayout.SOUTH);
-            container.add(cell);
+            cardButtonPair.add(button, BorderLayout.SOUTH);
+            container.add(cardButtonPair);
 
         }
 
     }
+    
+    /** Returns an ImageIcon, or null if the path was invalid. */
+protected ImageIcon createImageIcon(String path,
+                                           String description) {
+    java.net.URL imgURL = getClass().getResource(path);
+    if (imgURL != null) {
+        return new ImageIcon(imgURL, description);
+    } else {
+        System.err.println("Couldn't find file: " + path);
+        return null;
+    }
+}
 }

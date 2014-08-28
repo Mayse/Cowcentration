@@ -1,6 +1,7 @@
 package cowcentration.gamelogic;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GraphicGameLogic extends Game {
@@ -21,6 +22,10 @@ public class GraphicGameLogic extends Game {
 
     public void setGcards(List<GraphicCard> gcards) {
         this.gcards = gcards;
+    }
+
+    public void shuffleGcards() {
+        Collections.shuffle(this.gcards);
     }
 
 }

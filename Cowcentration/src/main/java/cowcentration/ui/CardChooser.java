@@ -3,6 +3,7 @@ package cowcentration.ui;
 import cowcentration.gamelogic.GraphicGameLogic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -25,15 +26,16 @@ class CardChooser implements ActionListener {
 
         //if two cards are visible hide both
         if (this.game.getTurnState().getCardsVisible() == 2) {
-            this.game.getTurnState().getLastCard().setText("card");
-            this.game.getTurnState().getSecondLastCard().setText("card");
+            this.game.getTurnState().getLastCard().setIcon(new ImageIcon("resources/Card_back_06.jpg"));
+            this.game.getTurnState().getSecondLastCard().setIcon(new ImageIcon("resources/Card_back_06.jpg"));
             this.game.getTurnState().setCardsVisible(0);
         }
 
         //if one card visible reveal second and compare the two
         //if no cards visible reveal one
         if (this.game.getTurnState().getCardsVisible() == 0) {
-            this.card.setText(this.game.getCardText(i));
+
+            this.card.setIcon(this.game.getGcards().get(i).getPicture());
             this.game.getTurnState().setIndexOfLastCard(i);
             this.game.getTurnState().setLastCard(card);
             this.game.getTurnState().setLastButton(button);
@@ -45,15 +47,15 @@ class CardChooser implements ActionListener {
             this.game.getTurnState().setSecondLastButton(this.game.getTurnState().getLastButton());
             this.game.getTurnState().setLastCard(card);
             this.game.getTurnState().setLastButton(button);
-            this.card.setText(this.game.getCardText(i));
+            this.card.setIcon(this.game.getGcards().get(i).getPicture());
             this.game.getTurnState().setCardsVisible(2);
             //compare them
-            if (this.game.getCards().get(i).getId() == this.game.getCards().get(this.game.getTurnState().getIndexOfLastCard()).getId()) {
+            if (this.game.getGcards().get(i).getId() == this.game.getGcards().get(this.game.getTurnState().getIndexOfLastCard()).getId()) {
                 //if match remove both cards from play and give point
-                this.game.getCards().get(i).remove();
-                this.game.getCards().get(this.game.getTurnState().getIndexOfLastCard()).remove();
-                this.card.setText("found");
-                this.game.getTurnState().getSecondLastCard().setText("found");
+                this.game.getGcards().get(i).remove();
+                this.game.getGcards().get(this.game.getTurnState().getIndexOfLastCard()).remove();
+                this.button.setText("found");
+                this.game.getTurnState().getSecondLastButton().setText("found");
                 this.game.getTurnState().setCardsVisible(0);
                 this.game.addPoint();
                 this.game.getTurnState().getLastButton().setEnabled(false);

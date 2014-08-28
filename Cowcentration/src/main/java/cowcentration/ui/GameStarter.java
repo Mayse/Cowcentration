@@ -28,7 +28,7 @@ class GameStarter implements ActionListener {
             players.add(field.getText());
         }
         GraphicGameLogic game = new GraphicGameLogic(players, 8);
-        game.shuffleCards();
+        game.shuffleGcards();
         game.shufflePlayers();
         GraphicGame graphicGame = new GraphicGame(game);
         frame.setVisible(false);
