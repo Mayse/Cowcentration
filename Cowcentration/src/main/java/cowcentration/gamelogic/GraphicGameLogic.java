@@ -1,19 +1,10 @@
-
 package cowcentration.gamelogic;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-/**
- *
- * @author miikas
- */
+public class GraphicGameLogic extends Game {
 
-
-
-public class GraphicGameLogic extends Game{
-    
     private List<GraphicCard> gcards;
 
     public GraphicGameLogic(List<String> players, int cardPairAmount) {
@@ -31,7 +22,5 @@ public class GraphicGameLogic extends Game{
     public void setGcards(List<GraphicCard> gcards) {
         this.gcards = gcards;
     }
-    
-         
-    
+
 }

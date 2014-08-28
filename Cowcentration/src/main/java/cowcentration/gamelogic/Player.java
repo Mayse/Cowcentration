@@ -1,8 +1,7 @@
-
 package cowcentration.gamelogic;
 
 class Player {
-    
+
     private final String name;
     private int points;
 
@@ -22,11 +21,11 @@ class Player {
     public void setPoints(int points) {
         this.points = points;
     }
-    
+
     /**
      * Increment player score by one
      */
-    public void addPoint(){
+    public void addPoint() {
         this.points = this.points + 1;
     }
 
@@ -34,7 +33,5 @@ class Player {
     public String toString() {
         return name;
     }
-    
-    
-    
+
 }

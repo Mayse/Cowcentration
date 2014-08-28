@@ -17,7 +17,6 @@ public class GraphicStartMenu implements Runnable {
 
     private JFrame frame;
     private List jTextFields;
-    
 
     @Override
     public void run() {
@@ -52,7 +51,7 @@ public class GraphicStartMenu implements Runnable {
         container.add(player2);
         container.add(player3);
         container.add(player4);
-        
+
         container.add(start);
 
     }

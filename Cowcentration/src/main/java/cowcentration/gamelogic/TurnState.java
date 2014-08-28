@@ -1,24 +1,23 @@
-
 package cowcentration.gamelogic;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
- * Class for turn management in graphical ui 
+ * Class for turn management in graphical ui
  */
 public class TurnState {
 
     private int cardsVisible;
     private int indexOfLastCard;
-    private JLabel lastCard; 
+    private JLabel lastCard;
     private JLabel secondLastCard;
     private JButton secondLastButton;
     private JButton lastButton;
 
     public TurnState() {
         this.cardsVisible = 0;
-        
+
     }
 
     public int getCardsVisible() {
@@ -69,8 +68,4 @@ public class TurnState {
         this.lastButton = lastButton;
     }
 
-    
-    
-    
-    
 }

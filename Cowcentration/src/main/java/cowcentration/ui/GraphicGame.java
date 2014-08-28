@@ -1,4 +1,3 @@
-
 package cowcentration.ui;
 
 import cowcentration.gamelogic.GraphicGameLogic;
@@ -12,15 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-/**
- *
- * @author miikas
- */
-class GraphicGame implements Runnable{
+class GraphicGame implements Runnable {
 
-            private JFrame frame;
-            private GraphicGameLogic game;
-    
+    private JFrame frame;
+    private final GraphicGameLogic game;
+
     GraphicGame(GraphicGameLogic game) {
         this.game = game;
     }
@@ -35,7 +30,8 @@ class GraphicGame implements Runnable{
         createComponents(frame.getContentPane());
 
         frame.pack();
-        frame.setVisible(true);    }
+        frame.setVisible(true);
+    }
 
     private void createComponents(Container container) {
         FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
@@ -43,18 +39,15 @@ class GraphicGame implements Runnable{
         for (int i = 0; i < game.getCards().size(); i++) {
             JPanel cell = new JPanel();
             cell.setLayout(new BorderLayout());
-           JLabel card = new JLabel("card");
+            JLabel card = new JLabel("card");
             cell.add(card, BorderLayout.CENTER);
             JButton button = new JButton("choose");
             this.game.getGcards().get(i).setButton(button);
             button.addActionListener(new CardChooser(this.game, i, card, button));
-            cell.add(button, BorderLayout.SOUTH);            
+            cell.add(button, BorderLayout.SOUTH);
             container.add(cell);
-            
-        }
-        
-        
-    }
-    }
-    
 
+        }
+
+    }
+}
