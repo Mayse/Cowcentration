@@ -29,3 +29,9 @@
 
 ######27.8. keskiviikko
 * 1,5h graafisessa käyttöliittymässä korttien valitseminen ja löytäminen toimii
+
+######28.8. torstai
+* 3h kuvaresurssit ja pelattavuus eteenpäin
+
+######29.8. perjantai
+* 1h branchatty vaihtoehto valita mielivaltainen pelaajamäärä
