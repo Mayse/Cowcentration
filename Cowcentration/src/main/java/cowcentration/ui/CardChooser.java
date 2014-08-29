@@ -4,7 +4,6 @@ import cowcentration.gamelogic.CardChooserLogic;
 import cowcentration.gamelogic.GraphicGameLogic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -15,7 +14,7 @@ class CardChooser implements ActionListener {
     private final JLabel card;
     private final JButton button;
     private final JLabel currentPlayer;
-    private CardChooserLogic logic;
+    private final CardChooserLogic logic;
 
     CardChooser(GraphicGameLogic game, int i, JLabel card, JButton button, JLabel currentPlayer) {
         this.card = card;
