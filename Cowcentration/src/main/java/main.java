@@ -1,6 +1,6 @@
 
 import cowcentration.ui.GraphicStartMenu;
-
+import cowcentration.ui.GraphicPlayerAmountSelection;
 
 public class main {
     public static void main(String[] args) {
@@ -9,7 +9,8 @@ public class main {
         textUi.run();
         */        
         
-        new GraphicStartMenu().run();
+        //new GraphicStartMenu().run();
         
+        new GraphicPlayerAmountSelection().run();
     }
 }

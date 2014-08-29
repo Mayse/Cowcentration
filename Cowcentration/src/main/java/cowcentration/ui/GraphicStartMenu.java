@@ -17,6 +17,16 @@ public class GraphicStartMenu implements Runnable {
 
     private JFrame frame;
     private List jTextFields;
+    String players;
+
+    public GraphicStartMenu() {
+    }
+
+    public GraphicStartMenu(String numberOfPlayers) {
+        this.players = numberOfPlayers;
+    }
+    
+    
 
     @Override
     public void run() {
@@ -38,20 +48,32 @@ public class GraphicStartMenu implements Runnable {
         container.setLayout(stackvertically);
         //static amount of players currently
         jTextFields = new ArrayList();
+        /*
         JPanel player1 = addPlayer("Player 1");
         JPanel player2 = addPlayer("Player 2");
         JPanel player3 = addPlayer("Player 3");
         JPanel player4 = addPlayer("Player 4");
+                                            */
+        int playerInt;
+        try {
+          playerInt = Integer.parseInt(players);
+        } catch (NumberFormatException e) {
+          playerInt = 4;  
+        }
+        for (int i = 0; i < playerInt; i++) {
+            JPanel player = addPlayer("Player " + (i + 1));
+            container.add(player);
+        }
 
         JButton start = new JButton("Start game");
 
         start.addActionListener(new GameStarter(jTextFields, frame));
-
+        /*
         container.add(player1);
         container.add(player2);
         container.add(player3);
         container.add(player4);
-
+                            */
         container.add(start);
 
     }
