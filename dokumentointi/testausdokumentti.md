@@ -5,10 +5,10 @@ Pelin yksinkertaisuudesta ja käyttöliittymäpainotteisuudesta johtuen ohjelman
 ##Alkuvalikossa:
  * tyhjennetään kaikki pelaajanimet ja pelataan peli loppuun
    * todetaan pelin toimivan oikein. Kohdat joihin pelaajien nimet tulisivat ovat tyhjiä, mutta peli ei kaadu.
- * kirjoitetaan numeroita tai muita unicode merkkejä teksteikenttiin
+ * kirjoitetaan numeroita tai muita unicode merkkejä tekstikenttiin
    * näyttää toimivan normaalisti
  * ylipitkät merkkijonot teksikenttiin
-   * muutamalla miljoonalla merkillä peli jumiutuu jo alkuvalikkoon macbook airilla, kenttien koko voisi olla rajoitettu
+   * muutamalla miljoonalla merkillä peli jumiutuu jo alkuvalikkoon testatulla koneella pakottaen prosessin tappamisen, kenttien koko voisi olla rajoitettu
 
 ##Pelissä:
  * Ainoa käyttäjän syöte pelissä on korttien valintanapit, hakataan nappeja satunnaisesti
