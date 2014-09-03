@@ -35,3 +35,6 @@
 
 ######29.8. perjantai
 * 1h branchatty vaihtoehto valita mielivaltainen pelaajamäärä
+
+######3.9. keskiviikko
+* 3h javadoc, testausdokumentti, build yms loppusiivoaminen
