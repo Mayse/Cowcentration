@@ -1,4 +1,4 @@
-
+package cowcentration;
 import cowcentration.ui.GraphicStartMenu;
 
 
