@@ -1,13 +1,10 @@
 package cowcentration.ui;
 
 import cowcentration.gamelogic.GraphicGameLogic;
-import cowcentration.gamelogic.Player;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.PopupMenu;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+/**
+ * Setup for drawing a gamescreen consisting of cards and buttons with actionlisteners
+ * 
+ */
 class GraphicGame implements Runnable {
 
     private JFrame frame;
@@ -41,7 +42,7 @@ class GraphicGame implements Runnable {
 
         FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
         container.setLayout(layout);
-        Container cards = new JPanel(layout);
+        Container cardspace = new JPanel(layout);
         
         JLabel currentPlayer = new JLabel();
         currentPlayer.setText(game.getCurrentPlayer().getName());
@@ -61,7 +62,7 @@ class GraphicGame implements Runnable {
         }
         
         
-        container.add(cards);
+        container.add(cardspace);
         container.add(currentPlayer);
     }
 

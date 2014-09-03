@@ -56,6 +56,11 @@ public class GraphicStartMenu implements Runnable {
 
     }
 
+    /**
+     * Creates a new JPanel with a text field and a checkbox for making the player a computer opponent instead of human
+     * @param name initial text in text field
+     * @return 
+     */
     private JPanel addPlayer(String name) {
         JTextField player = new JTextField(name);
         jTextFields.add(player);

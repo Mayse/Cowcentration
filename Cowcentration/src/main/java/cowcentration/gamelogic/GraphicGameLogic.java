@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Class for graphical extensions of cowcentration game logic, replaces normal cards with GraphicalCards
+ * 
+ */
 public class GraphicGameLogic extends Game {
 
     private List<GraphicCard> gcards;

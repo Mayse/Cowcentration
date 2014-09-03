@@ -7,6 +7,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+/**
+ * CardChooser handles card, button pair clicking events
+ * @see cowcentration.gamelogic.CardChooserLogic
+ */
 class CardChooser implements ActionListener {
 
     private final int i;
@@ -16,6 +20,14 @@ class CardChooser implements ActionListener {
     private final JLabel currentPlayer;
     private final CardChooserLogic logic;
 
+    /**
+     * 
+     * @param game 
+     * @param i card location in List<Card> in gamelogic.
+     * @param card JLabel for the card back and picture for this listener
+     * @param button JButton corresponding to this card button pair
+     * @param currentPlayer JLabel displaying name of current player in the ui
+     */
     CardChooser(GraphicGameLogic game, int i, JLabel card, JButton button, JLabel currentPlayer) {
         this.card = card;
         this.game = game;
@@ -25,6 +37,11 @@ class CardChooser implements ActionListener {
         this.logic = new CardChooserLogic(card, game, button, i, currentPlayer);
     }
 
+    /**
+     * Handles activity performed from choosing a card
+     * @see cowcentration.gamelogic.CardChooserLogic
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 

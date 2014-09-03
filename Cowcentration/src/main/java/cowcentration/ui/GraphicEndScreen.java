@@ -8,6 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
+/**
+ * Swing class to display end of game results.
+ * 
+ */
 public class GraphicEndScreen implements Runnable {
 
     private JFrame frame;

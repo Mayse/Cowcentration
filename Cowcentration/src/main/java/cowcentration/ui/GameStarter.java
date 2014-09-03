@@ -16,11 +16,20 @@ class GameStarter implements ActionListener {
     public GameStarter() {
     }
 
+    /**
+     * ActionListener for start menu to handle game start.
+     * @param jTextFields field for player names
+     * @param frame start menu frame
+     */
     GameStarter(List jTextFields, JFrame frame) {
         this.jTextFields = jTextFields;
         this.frame = frame;
     }
 
+    /**
+     * Hides the start menu and starts a new game using GraphicGame class.
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         List players = new ArrayList();
